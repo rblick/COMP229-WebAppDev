@@ -19,7 +19,7 @@ export default function About() {
           technical and creative skills.
         </p>
 
-        <a href="/resume.pdf" target="_blank">
+        <a href="assets/resume.pdf" target="_blank">
           View My Resume
         </a>
       </section>

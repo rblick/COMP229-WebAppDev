@@ -15,7 +15,6 @@ export default function Home() {
           useful and engaging software projects.
         </p>
 
-        <a href="/about">Learn More About Me</a>
       </section>
     </main>
     );
