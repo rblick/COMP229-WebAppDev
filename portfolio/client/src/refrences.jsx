@@ -4,34 +4,34 @@ export default function Refrences() {
       <h1>References</h1>
 
       <section>
-        <h2>Reference Name</h2>
+        <h2>Daryn Long</h2>
 
         <p>
-          <strong>Company:</strong> Company Name
+          <strong>Company:</strong> The Eh Team
         </p>
 
         <p>
-          <strong>Position:</strong> Position
+          <strong>Position:</strong> Programing 
         </p>
 
         <p>
-          "Write the person's testimonial here."
+          "I enjoy working with Robert. He is hard working and creative"
         </p>
       </section>
 
       <section>
-        <h2>Reference Name</h2>
+        <h2>Fitz Rodney</h2>
 
         <p>
-          <strong>Company:</strong> Company Name
+          <strong>Company:</strong> LKG
         </p>
 
         <p>
-          <strong>Position:</strong> Position
+          <strong>Position:</strong> Manager
         </p>
 
         <p>
-          "Write the person's testimonial here."
+          "Robert is a hard worker that always goes the extra mile."
         </p>
       </section>
     </main>

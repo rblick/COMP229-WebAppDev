@@ -5,9 +5,9 @@ export default function Layout() {
   return (
     <>
       <img
-          src="/images/profile.jpg"
+          src="/images/logo2.png"
           alt="logo"
-          width="250"
+          width="150"
         />
       <h1>My Portfolio</h1>
       <nav>
