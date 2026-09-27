@@ -1,7 +1,7 @@
 export default function Home() {
   return ( <main>
       <section>
-        <h2>Welcome to My Portfolio</h2>
+        <h1>Welcome to My Portfolio</h1>
 
         <p>
           Hello, my name is Robert Blick. I am a computer programming student
@@ -12,6 +12,8 @@ export default function Home() {
           My goal is to continue improving my programming skills while creating
           useful and engaging software projects.
         </p>
+
+        <a href="/about">Learn More About Me</a>
 
       </section>
     </main>

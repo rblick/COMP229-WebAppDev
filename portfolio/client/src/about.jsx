@@ -24,8 +24,10 @@ export default function About() {
         </p>
 
         <a href="/resume_RobertBlick.pdf" download>
-          View My Resume
+          Download My Resume
         </a>
+
+        
       </section>
     </main>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./src/about";
-import Project from "./src/project";
+import Projects from "./src/project";
 import Service from "./src/service";
-import Refrences from "./src/refrences";
+import References from "./src/references";
 import Contact from "./src/contact";
 import Layout from "./components/Layout";
 
@@ -15,9 +15,9 @@ const MainRouter = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/project" element={<Project />} />
+        <Route exact path="/project" element={<Projects />} />
         <Route exact path="/service" element={<Service />} />
-        <Route exact path="/refrences" element={<Refrences />} />
+        <Route exact path="/references" element={<References />} />
         <Route exact path="/contact" element={<Contact />} />
       </Routes>
     </div>

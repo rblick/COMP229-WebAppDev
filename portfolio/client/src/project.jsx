@@ -17,15 +17,15 @@ export default function Project() {
         </p>
 
         <p>
-          <strong>My Role:</strong> Programmer, Art, and Animation.
+          <strong>My Role:</strong> Programming, Art, and Animation
         </p>
 
         <p>
-          A fun online videogame where friend avoid falling bombs to see who is left standing.S
+          A fun online video game where friends avoid falling bombs to see who is left standing.
         </p>
 
         <p>
-          <strong>Outcome:</strong> Explain what you completed or learned.
+          <strong>Outcome:</strong> Network features and online play
         </p>
       </section>
 
@@ -43,15 +43,14 @@ export default function Project() {
         </p>
 
         <p>
-          <strong>My Role:</strong> Programing, Art, and music
+          <strong>My Role:</strong> Programming, Art, and Music
         </p>
 
         <p>
-          An experimental digital art piece made to run on the original Gameboy.
+          An experimental digital art piece created for the original Game Boy.
         </p>
-
         <p>
-          <strong>Outcome:</strong> This helped to strengthen my 3D modeling skills and music compostion.
+          <strong>Outcome:</strong> This project helped strengthen my 3D modeling and music composition skills.
         </p>
       </section>
 
@@ -69,15 +68,15 @@ export default function Project() {
         </p>
 
         <p>
-          <strong>My Role:</strong> Programmer and art
+          <strong>My Role:</strong> Programmer and Artist
         </p>
 
         <p>
-          A short video game where you break into and rob a bank. Made for the Playdate game console.
+          A short video game where the player breaks into and robs a bank, created for the Playdate game console.
         </p>
 
         <p>
-          <strong>Outcome:</strong> I learned how to organize a small team toward a single goal.
+          <strong>Outcome:</strong> I learned how to organize a small team and coordinate our work toward a shared goal.
         </p>
       </section>
     </main>

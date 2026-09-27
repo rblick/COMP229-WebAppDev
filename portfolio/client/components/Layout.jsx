@@ -4,18 +4,16 @@ import { Link } from "react-router-dom";
 export default function Layout() {
   return (
     <>
-      <img
-          src="/images/logo2.png"
-          alt="logo"
-          width="150"
-        />
-      <h1>My Portfolio</h1>
+      <header>
+        <img src="/images/logo2.png" alt="Logo" />
+        <h1>Robert Blick Portfolio</h1>
+      </header>
       <nav>
-        <Link to="/">Home</Link>{"__"}
-        <Link to="/about">About</Link>{"__"}
-        <Link to="/project">Project</Link>{"__"}
-        <Link to="/service">Services</Link>{"__"}
-        <Link to="/refrences">Refrences</Link>{"__"}
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/project">Project</Link>
+        <Link to="/service">Services</Link>
+        <Link to="/references">References</Link>
         <Link to="/contact">Contact</Link>
       </nav>
       <br />

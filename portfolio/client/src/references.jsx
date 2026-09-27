@@ -11,11 +11,11 @@ export default function Refrences() {
         </p>
 
         <p>
-          <strong>Position:</strong> Programing 
+          <strong>Position:</strong> Programmer, Developer, Artist
         </p>
 
         <p>
-          "I enjoy working with Robert. He is hard working and creative"
+          "I enjoy working with Robert. He is hardworking and creative."
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function Refrences() {
         </p>
 
         <p>
-          "Robert is a hard worker that always goes the extra mile."
+          "Robert is a hard worker who always goes the extra mile."
         </p>
       </section>
     </main>
