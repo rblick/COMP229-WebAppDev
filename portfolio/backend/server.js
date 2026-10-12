@@ -4,12 +4,15 @@ Lab Assignment 2
 Robert Blick 300808673
 */
 
+require("dotenv").config();
+
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
 const port = 3000;
 const createError = require("http-errors");
+const connectDB = require("./config/db");
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -30,7 +33,10 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(port, () => {
-    console.log("Server is running");
+connectDB().then(() => {
+    app.listen(port, () => {
+    console.log("Server and DB are running");
+    });
 });
+
 
