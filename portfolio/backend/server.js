@@ -1,0 +1,36 @@
+/* 
+COMP229_F2026
+Lab Assignment 2
+Robert Blick 300808673
+*/
+
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
+const app = express();
+const port = 3000;
+const createError = require("http-errors");
+
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(cors());
+
+app.get("/", (req, res) => {
+    res.send("Backend is running");
+});
+
+app.use((req, res, next) => {
+    next(createError(404, "Route not found"));
+});
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message
+    });
+});
+
+app.listen(port, () => {
+    console.log("Server is running");
+});
+
