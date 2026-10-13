@@ -1,13 +1,14 @@
 $kind: http-request
-url: http://localhost:3000/api/projects/
+url: http://localhost:3000/api/projects
 method: POST
 body:
   type: json
   content: |-
     {
-        "title": "COMP229 - Assignment 02",
-        "completion": "2025-10-31",
-        "description": "This Assignment is about backend API."
+      "title": "Portfolio Website",
+      "completion": "2026-10-12",
+      "description": "My personal portfolio website.",
+      "image": "images/portfolio.png"
     }
 auth:
   type: bearer

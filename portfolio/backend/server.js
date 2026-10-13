@@ -14,6 +14,7 @@ const port = 3000;
 const createError = require("http-errors");
 const connectDB = require("./config/db");
 const serviceRoutes = require("./routes/serviceRoutes");
+const projectRoutes = require("./routes/projectRoutes");
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/services", serviceRoutes);
+app.use("/api/projects", projectRoutes);
 
 app.use((req, res, next) => {
     next(createError(404, "Route not found"));
