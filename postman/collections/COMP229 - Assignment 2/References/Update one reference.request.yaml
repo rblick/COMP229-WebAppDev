@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:3000/api/references/{{referenceId}}
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "firstname": "Bruce",
+        "lastname": "Wayne",
+        "email": "bruce.wayne@waynecorp.com"
+    }
+order: 4000

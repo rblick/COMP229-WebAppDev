@@ -1,0 +1,22 @@
+$kind: http-request
+url: http://localhost:3000/api/projects/
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "title": "COMP229 - Assignment 02",
+        "completion": "2025-10-31",
+        "description": "This Assignment is about backend API."
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0q3j}}"
+scripts:
+  - type: afterResponse
+    code: "let jsonData = pm.response.json();\r
+
+      pm.environment.set(\"projectId\", jsonData.data.id);"
+    language: text/javascript
+order: 1000

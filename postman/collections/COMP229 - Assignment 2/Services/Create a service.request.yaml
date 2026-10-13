@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:3000/api/services
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "title": "Web Application Development",
+        "description": "Development of your web app using the MERN stack."
+    }
+scripts:
+  - type: afterResponse
+    code: "let jsonData = pm.response.json();\r
+
+      pm.environment.set(\"serviceId\", jsonData.data.id);"
+    language: text/javascript
+order: 1000

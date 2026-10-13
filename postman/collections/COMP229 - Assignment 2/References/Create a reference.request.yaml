@@ -1,0 +1,22 @@
+$kind: http-request
+url: http://localhost:3000/api/references
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "firstname": "Clark",
+        "lastname": "Kent",
+        "firstName": "Clark",
+        "lastName": "Kent",
+        "email": "clark.kent@dailyplanet.com",
+        "company": "Daily Planet",
+        "position": "Reporter"
+    }
+scripts:
+  - type: afterResponse
+    code: "let jsonData = pm.response.json();\r
+
+      pm.environment.set(\"referenceId\", jsonData.data.id);"
+    language: text/javascript
+order: 1000

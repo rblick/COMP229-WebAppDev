@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:3000/api/projects/{{projectId}}
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "title": "COMP229 - Assignment 02",
+        "completion": "2025-10-31",
+        "description": "This Assignment is all about backend API. Submitted before due date."
+    }
+order: 4000

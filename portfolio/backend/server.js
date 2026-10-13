@@ -13,6 +13,7 @@ const app = express();
 const port = 3000;
 const createError = require("http-errors");
 const connectDB = require("./config/db");
+const serviceRoutes = require("./routes/serviceRoutes");
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -21,6 +22,8 @@ app.use(cors());
 app.get("/", (req, res) => {
     res.send("Backend is running");
 });
+
+app.use("/api/services", serviceRoutes);
 
 app.use((req, res, next) => {
     next(createError(404, "Route not found"));

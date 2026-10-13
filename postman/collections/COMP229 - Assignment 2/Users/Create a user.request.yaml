@@ -1,0 +1,25 @@
+$kind: http-request
+url: http://localhost:3000/api/users
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "firstname": "Clark",
+        "lastname": "Kent",
+        "firstName": "Clark",
+        "lastName": "Kent",
+        "email": "clark.kent@dailyplanet.com",    
+        "password": "12345678",
+        "username": "clark.kent2",
+        "created": "2023-04-01T00:00:00Z",
+        "updated": "2023-04-01T00:00:00Z",
+        "role": "admin"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      let jsonData = pm.response.json();
+      pm.environment.set("userId", jsonData.data.id);
+    language: text/javascript
+order: 1000
