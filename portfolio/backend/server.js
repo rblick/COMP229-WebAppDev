@@ -10,7 +10,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const createError = require("http-errors");
 const connectDB = require("./config/db");
 const serviceRoutes = require("./routes/serviceRoutes");
@@ -21,6 +21,7 @@ const userRoutes = require("./routes/userRoutes");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
+
 
 app.get("/", (req, res) => {
     res.send("Backend is running");
