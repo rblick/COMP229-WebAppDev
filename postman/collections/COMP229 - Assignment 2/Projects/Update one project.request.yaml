@@ -1,6 +1,6 @@
 $kind: http-request
-url: http://localhost:3000/api/projects/6acd893c923a31e66fc1d55d
-method: GET
+url: http://localhost:3000/api/projects/6acfc3d20752221ae8946624
+method: PUT
 body:
   type: json
   content: |-

@@ -1,4 +1,4 @@
 $kind: http-request
-url: http://localhost:3000/api/services/{{serviceId}}
+url: http://localhost:3000/api/services/6acfbda40752221ae8946610
 method: GET
 order: 3000
