@@ -1,17 +1,14 @@
 $kind: http-request
 url: http://localhost:3000/api/references
-method: POST
+method: GET
 body:
   type: json
   content: |-
     {
-        "firstname": "Clark",
-        "lastname": "Kent",
-        "firstName": "Clark",
-        "lastName": "Kent",
-        "email": "clark.kent@dailyplanet.com",
-        "company": "Daily Planet",
-        "position": "Reporter"
+      "name": "Fitz Rodney",
+      "testimonial": "Robert is hardworking.",
+      "position": "Manager",
+      "company": "LKG"
     }
 scripts:
   - type: afterResponse

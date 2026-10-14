@@ -15,6 +15,8 @@ const createError = require("http-errors");
 const connectDB = require("./config/db");
 const serviceRoutes = require("./routes/serviceRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const referenceRoutes = require("./routes/referenceRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -26,6 +28,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/services", serviceRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/references", referenceRoutes);
+app.use("/api/users", userRoutes);
 
 app.use((req, res, next) => {
     next(createError(404, "Route not found"));
