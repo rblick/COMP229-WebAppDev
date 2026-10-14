@@ -1,5 +1,5 @@
 $kind: http-request
-url: http://localhost:3000/api/services/6acfbda40752221ae8946610
+url: https://comp229-robertblick.netlify.app/api/services/6acfc2270752221ae894661b
 method: PUT
 body:
   type: json
