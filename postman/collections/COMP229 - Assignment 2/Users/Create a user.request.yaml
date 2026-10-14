@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:3000/api/users
+method: POST
+body:
+  type: json
+  content: |
+    {
+      "firstname": "Jill",
+      "lastname": "Valentine",
+      "email": "j.valentine@example.com",
+      "updated": "2026-10-14T17:10:00Z"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      let jsonData = pm.response.json();
+      pm.environment.set("userId", jsonData.data.id);
+    language: text/javascript
+order: 1000

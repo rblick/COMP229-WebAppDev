@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:3000/api/users/6acfc35d0752221ae8946622
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "firstname": "Bruce",
+        "lastname": "Wayne",
+        "email": "bruce.wayne@waynecorp.com"
+    }
+order: 4000

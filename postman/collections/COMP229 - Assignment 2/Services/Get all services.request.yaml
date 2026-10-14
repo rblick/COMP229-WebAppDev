@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:3000/api/services
+method: GET
+scripts:
+  - type: afterResponse
+    code: "let jsonData = pm.response.json();\r
+
+      let index = jsonData.data.length - 1;\r
+
+      pm.environment.set(\"serviceId\", jsonData.data[index].id);"
+    language: text/javascript
+order: 2000

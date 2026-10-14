@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/api/projects/6acfc3d20752221ae8946624
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+      "title": "Updated Portfolio Project",
+      "description": "My updated project description."
+    }
+order: 4000

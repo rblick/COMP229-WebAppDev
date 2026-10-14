@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/api/users
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      let jsonData = pm.response.json();
+      let index = jsonData.data.length - 1;
+      pm.environment.set("userId", jsonData.data[index].id);
+    language: text/javascript
+order: 2000

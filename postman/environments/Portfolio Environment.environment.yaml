@@ -1,0 +1,10 @@
+name: Portfolio Environment
+values:
+  - key: referenceId
+    value: ''
+  - key: projectId
+    value: ''
+  - key: serviceId
+    value: ''
+  - key: userId
+    value: ''

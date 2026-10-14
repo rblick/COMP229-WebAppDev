@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/api/services/6acfbda40752221ae8946610
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+      "title": "Backend Development",
+      "description": "Building APIs using Express and MongoDB."
+    }
+order: 4000

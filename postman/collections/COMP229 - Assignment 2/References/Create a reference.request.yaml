@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:3000/api/references
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "name": "Fitz Rodney",
+      "testimonial": "Robert is hardworking.",
+      "position": "Manager",
+      "company": "LKG"
+    }
+scripts:
+  - type: afterResponse
+    code: "let jsonData = pm.response.json();\r
+
+      pm.environment.set(\"referenceId\", jsonData.data.id);"
+    language: text/javascript
+order: 1000
