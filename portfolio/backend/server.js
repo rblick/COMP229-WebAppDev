@@ -6,7 +6,7 @@ Robert Blick 300808673
 
 require("dotenv").config();
 
-const app = require("./app");
+const app = require("./server/express");
 const connectDB = require("./config/db");
 
 const port = process.env.PORT || 3000;

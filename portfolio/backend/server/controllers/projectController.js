@@ -1,8 +1,10 @@
 const Project = require("../models/project");
+const extend = require("lodash/extend");
 
 exports.add = async (req, res, next) => {
     try {
-        const project = await Project.create(req.body);
+        const project = new Project(req.body);
+        await project.save();
 
         res.status(201).json({
             success: true,
@@ -47,13 +49,13 @@ exports.getByID = async (req, res, next) => {
         if (!project) {
             return res.status(404).json({
                 success: false,
-                message: "project not found."
+                message: "Project not found."
             });
         }
 
         res.status(200).json({
             success: true,
-            message: "project retrieved successfully.",
+            message: "Project retrieved successfully.",
             data: {
                 title: project.title,
                 completion: project.completion,
@@ -69,22 +71,21 @@ exports.getByID = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const project = await Project.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { runValidators: true }
-        );
+        const project = await Project.findById(req.params.id);
 
         if (!project) {
             return res.status(404).json({
                 success: false,
-                message: "project not found."
+                message: "Project not found."
             });
         }
 
+        extend(project, req.body);
+        await project.save();
+
         res.status(200).json({
             success: true,
-            message: "project updated successfully."
+            message: "Project updated successfully."
         });
     } catch (err) {
         next(err);
@@ -93,18 +94,20 @@ exports.update = async (req, res, next) => {
 
 exports.remove = async (req, res, next) => {
     try {
-        const project = await Project.findByIdAndDelete(req.params.id);
+        const project = await Project.findById(req.params.id);
 
         if (!project) {
             return res.status(404).json({
                 success: false,
-                message: "project not found."
+                message: "Project not found."
             });
         }
 
+        await project.deleteOne();
+
         res.status(200).json({
             success: true,
-            message: "project deleted successfully."
+            message: "Project deleted successfully."
         });
     } catch (err) {
         next(err);
