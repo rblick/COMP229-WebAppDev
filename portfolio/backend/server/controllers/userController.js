@@ -1,12 +1,14 @@
 const User = require("../models/user");
+const extend = require("lodash/extend");
 
 exports.add = async (req, res, next) => {
     try {
-        const user = await User.create(req.body);
+        const user = new User(req.body);
+        await user.save();
 
         res.status(201).json({
             success: true,
-            message: "user added successfully.",
+            message: "User added successfully.",
             data: {
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -28,7 +30,7 @@ exports.getAll = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: "users list retrieved successfully.",
+            message: "Users list retrieved successfully.",
             data: users.map((user) => ({
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -51,13 +53,13 @@ exports.getByID = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({
                 success: false,
-                message: "user not found."
+                message: "User not found."
             });
         }
 
         res.status(200).json({
             success: true,
-            message: "user retrieved successfully.",
+            message: "User retrieved successfully.",
             data: {
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -75,22 +77,21 @@ exports.getByID = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const user = await User.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { runValidators: true }
-        );
+        const user = await User.findById(req.params.id);
 
         if (!user) {
             return res.status(404).json({
                 success: false,
-                message: "user not found."
+                message: "User not found."
             });
         }
 
+        extend(user, req.body);
+        await user.save();
+
         res.status(200).json({
             success: true,
-            message: "user updated successfully."
+            message: "User updated successfully."
         });
     } catch (err) {
         next(err);
@@ -99,18 +100,20 @@ exports.update = async (req, res, next) => {
 
 exports.remove = async (req, res, next) => {
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
+        const user = await User.findById(req.params.id);
 
         if (!user) {
             return res.status(404).json({
                 success: false,
-                message: "user not found."
+                message: "User not found."
             });
         }
 
+        await user.deleteOne();
+
         res.status(200).json({
             success: true,
-            message: "user deleted successfully."
+            message: "User deleted successfully."
         });
     } catch (err) {
         next(err);

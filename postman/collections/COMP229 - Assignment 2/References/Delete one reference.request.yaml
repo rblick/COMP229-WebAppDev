@@ -1,4 +1,4 @@
 $kind: http-request
-url: http://localhost:3000/api/references/6acfb20e47a3c6c9663958e9
+url: https://comp229-robertblick.netlify.app/api/references/6acfb03247a3c6c9663958e6
 method: DELETE
 order: 5000

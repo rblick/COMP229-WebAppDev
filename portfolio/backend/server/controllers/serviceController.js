@@ -1,8 +1,10 @@
 const Service = require("../models/service");
+const extend = require("lodash/extend");
 
 exports.add = async (req, res, next) => {
     try {
-        const service = await Service.create(req.body);
+        const service = new Service(req.body);
+        await service.save();
 
         res.status(201).json({
             success: true,
@@ -63,11 +65,7 @@ exports.getByID = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const service = await Service.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { runValidators: true }
-        );
+        const service = await Service.findById(req.params.id);
 
         if (!service) {
             return res.status(404).json({
@@ -75,6 +73,9 @@ exports.update = async (req, res, next) => {
                 message: "Service not found."
             });
         }
+
+        extend(service, req.body);
+        await service.save();
 
         res.status(200).json({
             success: true,
@@ -87,7 +88,7 @@ exports.update = async (req, res, next) => {
 
 exports.remove = async (req, res, next) => {
     try {
-        const service = await Service.findByIdAndDelete(req.params.id);
+        const service = await Service.findById(req.params.id);
 
         if (!service) {
             return res.status(404).json({
@@ -95,6 +96,8 @@ exports.remove = async (req, res, next) => {
                 message: "Service not found."
             });
         }
+
+        await service.deleteOne();
 
         res.status(200).json({
             success: true,

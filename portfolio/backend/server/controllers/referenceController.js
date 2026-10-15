@@ -1,12 +1,14 @@
 const Reference = require("../models/reference");
+const extend = require("lodash/extend");
 
 exports.add = async (req, res, next) => {
     try {
-        const reference = await Reference.create(req.body);
+        const reference = new Reference(req.body);
+        await reference.save();
 
         res.status(201).json({
             success: true,
-            message: "reference added successfully.",
+            message: "Reference added successfully.",
             data: {
                 name: reference.name,
                 testimonial: reference.testimonial,
@@ -26,7 +28,7 @@ exports.getAll = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: "references list retrieved successfully.",
+            message: "References list retrieved successfully.",
             data: references.map((reference) => ({
                 name: reference.name,
                 testimonial: reference.testimonial,
@@ -47,13 +49,13 @@ exports.getByID = async (req, res, next) => {
         if (!reference) {
             return res.status(404).json({
                 success: false,
-                message: "reference not found."
+                message: "Reference not found."
             });
         }
 
         res.status(200).json({
             success: true,
-            message: "reference retrieved successfully.",
+            message: "Reference retrieved successfully.",
             data: {
                 name: reference.name,
                 testimonial: reference.testimonial,
@@ -69,22 +71,21 @@ exports.getByID = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const reference = await Reference.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { runValidators: true }
-        );
+        const reference = await Reference.findById(req.params.id);
 
         if (!reference) {
             return res.status(404).json({
                 success: false,
-                message: "reference not found."
+                message: "Reference not found."
             });
         }
 
+        extend(reference, req.body);
+        await reference.save();
+
         res.status(200).json({
             success: true,
-            message: "reference updated successfully."
+            message: "Reference updated successfully."
         });
     } catch (err) {
         next(err);
@@ -93,18 +94,20 @@ exports.update = async (req, res, next) => {
 
 exports.remove = async (req, res, next) => {
     try {
-        const reference = await Reference.findByIdAndDelete(req.params.id);
+        const reference = await Reference.findById(req.params.id);
 
         if (!reference) {
             return res.status(404).json({
                 success: false,
-                message: "reference not found."
+                message: "Reference not found."
             });
         }
 
+        await reference.deleteOne();
+
         res.status(200).json({
             success: true,
-            message: "reference deleted successfully."
+            message: "Reference deleted successfully."
         });
     } catch (err) {
         next(err);
