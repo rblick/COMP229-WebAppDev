@@ -7,6 +7,7 @@ import Service from "./src/service";
 import References from "./src/references";
 import Contact from "./src/contact";
 import Layout from "./components/Layout";
+import ManageServices from "./admin/ManageServices";
 
 const MainRouter = () => {
   return (
@@ -20,6 +21,7 @@ const MainRouter = () => {
         <Route exact path="/references" element={<References />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/services" element={<ManageServices />} />
       </Routes>
     </div>
   );
