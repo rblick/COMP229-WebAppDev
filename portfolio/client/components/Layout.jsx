@@ -15,6 +15,7 @@ export default function Layout() {
         <Link to="/service">Services</Link>
         <Link to="/references">References</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/admin">Admin Dashboard</Link>
       </nav>
       <br />
       <hr />
