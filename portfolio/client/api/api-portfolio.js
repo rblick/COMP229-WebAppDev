@@ -1,6 +1,7 @@
 export async function list(resource, signal) {
   const response = await fetch(`/api/${resource}`, { signal });
   const result = await response.json();
+  const API_BASE = import.meta.env.VITE_API_URL || "";
 
   if (!response.ok || !result.success) {
     throw new Error(result.message || "Could not load records.");

@@ -11,7 +11,6 @@ exports.add = async (req, res, next) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 email: user.email,
-                password: user.password,
                 created: user.created,
                 updated: user.updated,
                 id: user._id.toString()
@@ -33,7 +32,6 @@ exports.getAll = async (req, res, next) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 email: user.email,
-                password: user.password,
                 created: user.created,
                 updated: user.updated,
                 id: user._id.toString()
@@ -62,7 +60,6 @@ exports.getByID = async (req, res, next) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 email: user.email,
-                password: user.password,
                 created: user.created,
                 updated: user.updated,
                 id: user._id.toString()
