@@ -10,6 +10,7 @@ import Layout from "./components/Layout";
 import ManageServices from "./admin/ManageServices";
 import ManageProjects from "./admin/ManageProjects";
 import ManageReferences from "./admin/ManageReferences";
+import ManageUsers from "./admin/ManageUsers";
 
 const MainRouter = () => {
   return (
@@ -26,6 +27,7 @@ const MainRouter = () => {
         <Route path="/admin/services" element={<ManageServices />} />
         <Route path="/admin/projects" element={<ManageProjects />} />
         <Route path="/admin/references" element={<ManageReferences />} />
+        <Route path="/admin/users" element={<ManageUsers />} />
       </Routes>
     </div>
   );
