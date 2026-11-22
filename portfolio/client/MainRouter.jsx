@@ -9,6 +9,7 @@ import Contact from "./src/contact";
 import Layout from "./components/Layout";
 import ManageServices from "./admin/ManageServices";
 import ManageProjects from "./admin/ManageProjects";
+import ManageReferences from "./admin/ManageReferences";
 
 const MainRouter = () => {
   return (
@@ -24,6 +25,7 @@ const MainRouter = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/services" element={<ManageServices />} />
         <Route path="/admin/projects" element={<ManageProjects />} />
+        <Route path="/admin/references" element={<ManageReferences />} />
       </Routes>
     </div>
   );
