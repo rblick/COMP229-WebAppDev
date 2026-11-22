@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { create, list, update } from "../api/api-portfolio";
+import { create, list, update, remove } from "../api/api-portfolio";
 
 export default function ManageServices() {
   const [services, setServices] = useState(null);
@@ -76,6 +76,30 @@ export default function ManageServices() {
     }
   }
 
+  async function handleDelete(id) {
+    if (!window.confirm("Delete this service?")) {
+      return;
+    }
+
+    setError("");
+    setSaving(true);
+
+    try {
+      await remove("services", id);
+      setServices((previous) =>
+        previous.filter((service) => service.id !== id)
+      );
+
+      if (editingId === id) {
+        resetForm();
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
   return (
     <main>
       <Link to="/admin">Back to Admin Dashboard</Link>
@@ -121,9 +145,14 @@ export default function ManageServices() {
           <button
             type="button"
             onClick={() => startEditing(service)}
-            disabled={saving}
-          >
+            disabled={saving}>
             Edit
+          </button>
+          <button 
+            type="button"
+            onClick={() => handleDelete(service.id)}
+            disabled={saving}>
+            Delete
           </button>
         </section>
       ))}

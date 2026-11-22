@@ -38,3 +38,15 @@ export async function update(resource, id, record) {
     throw new Error(result.message || "Could not update the record.");
   }
 }
+
+export async function remove(resource, id) {
+  const response = await fetch(`/api/${resource}/${id}`, {
+    method: "DELETE",
+  });
+
+  const result = await response.json();
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || "Could not delete the record.");
+  }
+}
