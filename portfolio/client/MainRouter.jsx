@@ -8,6 +8,7 @@ import References from "./src/references";
 import Contact from "./src/contact";
 import Layout from "./components/Layout";
 import ManageServices from "./admin/ManageServices";
+import ManageProjects from "./admin/ManageProjects";
 
 const MainRouter = () => {
   return (
@@ -22,6 +23,7 @@ const MainRouter = () => {
         <Route exact path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/services" element={<ManageServices />} />
+        <Route path="/admin/projects" element={<ManageProjects />} />
       </Routes>
     </div>
   );
