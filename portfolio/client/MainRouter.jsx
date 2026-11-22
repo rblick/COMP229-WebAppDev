@@ -11,6 +11,7 @@ import ManageServices from "./admin/ManageServices";
 import ManageProjects from "./admin/ManageProjects";
 import ManageReferences from "./admin/ManageReferences";
 import ManageUsers from "./admin/ManageUsers";
+import AdminDashboard from "./admin/AdminDashboard";
 
 const MainRouter = () => {
   return (
