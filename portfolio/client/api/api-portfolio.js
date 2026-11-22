@@ -24,3 +24,17 @@ export async function create(resource, record) {
 
   return result.data;
 }
+
+export async function update(resource, id, record) {
+  const response = await fetch(`/api/${resource}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(record),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || "Could not update the record.");
+  }
+}
