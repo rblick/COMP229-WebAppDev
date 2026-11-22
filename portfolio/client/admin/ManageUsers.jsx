@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { create, list, update, remove } from "../api/api-portfolio";
 
+function userSummary({ id, firstname, lastname, email }) {
+  return { id, firstname, lastname, email };
+}
+
 export default function ManageUsers() {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState("");
@@ -16,7 +20,7 @@ export default function ManageUsers() {
     const controller = new AbortController();
 
     list("users", controller.signal)
-      .then((records) => setUsers(records))
+      .then((records) => setUsers(records.map(userSummary)))
       .catch((err) => {
         if (!controller.signal.aborted) {
           setError(err.message);
@@ -48,13 +52,13 @@ export default function ManageUsers() {
     event.preventDefault();
     setError("");
 
-    const record = {
+    const details = {
       firstname: firstname.trim(),
       lastname: lastname.trim(),
       email: email.trim(),
     };
 
-    if (!record.firstname || !record.lastname || !record.email) {
+    if (!details.firstname || !details.lastname || !details.email) {
       setError("Enter a first name, last name, and email.");
       return;
     }
@@ -63,6 +67,8 @@ export default function ManageUsers() {
       setError("Enter a password for the new user.");
       return;
     }
+
+    const record = { ...details };
 
     if (password.trim()) {
       record.password = password;
@@ -73,13 +79,13 @@ export default function ManageUsers() {
     try {
       if (editingId === null) {
         const savedUser = await create("users", record);
-        setUsers((previous) => [...previous, savedUser]);
+        setUsers((previous) => [...previous, userSummary(savedUser)]);
       } else {
         await update("users", editingId, record);
 
         setUsers((previous) =>
           previous.map((user) =>
-            user.id === editingId ? { ...user, ...record } : user
+            user.id === editingId ? { ...user, ...details } : user
           )
         );
       }
@@ -185,7 +191,7 @@ export default function ManageUsers() {
             disabled={saving}>
             Edit
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => handleDelete(user.id)}
             disabled={saving}>

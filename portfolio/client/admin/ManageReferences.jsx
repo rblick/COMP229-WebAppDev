@@ -116,7 +116,6 @@ export default function ManageReferences() {
       {error && <p role="alert">{error}</p>}
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="reference-title">Title</label>
         <label htmlFor="reference-name">Name</label>
         <input
           id="reference-name"
@@ -173,7 +172,7 @@ export default function ManageReferences() {
             disabled={saving}>
             Edit
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => handleDelete(reference.id)}
             disabled={saving}>

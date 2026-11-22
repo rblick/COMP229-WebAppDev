@@ -173,7 +173,7 @@ export default function ManageProjects() {
             disabled={saving}>
             Edit
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => handleDelete(project.id)}
             disabled={saving}>

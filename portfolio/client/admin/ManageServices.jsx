@@ -26,8 +26,8 @@ export default function ManageServices() {
 
   function startEditing(service) {
     setEditingId(service.id);
-    setTitle(service.title);
-    setDescription(service.description);
+    setTitle(service.title ?? "");
+    setDescription(service.description ?? "");
     setError("");
   }
 
@@ -148,7 +148,7 @@ export default function ManageServices() {
             disabled={saving}>
             Edit
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => handleDelete(service.id)}
             disabled={saving}>
